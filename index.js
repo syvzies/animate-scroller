@@ -3,7 +3,7 @@
 
 var scrollAnimator = {};
 
-function inViewport (elem) {
+scrollAnimator.inViewport = function (elem) {
 
     //Get the bounding rectangle's position in relation to the viewport
     var elemRect = elem.getBoundingClientRect();
@@ -18,7 +18,34 @@ function inViewport (elem) {
     return topVisible || bottomVisible;
 }
 
-scrollAnimator.animate = function (className) {
+scrollAnimator.addClass = function (elem, classAdd) {
+    if (elem.className.indexOf(classAdd) < 0) {
+        elem.className = elem.className + ' ' + classAdd;
+    }
+}
+
+scrollAnimator.removeClass = function (elem, classRemove) {
+    var pos = elem.className.indexOf(classRemove);
+    if (pos > 0) {
+        var before = elem.className.slice(0, pos);
+        var after = elem.className.slice(pos + classRemove.length);
+        elem.className = before + after;
+    }
+}
+
+//add event listener
+scrollAnimator.addScroll = function (id, searchClass) {
+    var scrollContainer = document.getElementById(id);
+    if (!scrollContainer) {
+        console.log('Scroll-animator error: element with id ' + id + ' could not be found.');
+        return false;
+    }
+    scrollContainer.addEventListener('scroll', function () {
+        animate(searchClass);
+    });
+}
+
+function animate (className) {
     //add default of anim-elem
     className = className || 'anim-elem';
     //get all elements with that class name
@@ -28,29 +55,13 @@ scrollAnimator.animate = function (className) {
     for (var i = 0; i < elemList.length; i++) {
         var elem = elemList[i];
         //check if those elements are in view
-        if (inViewport(elem)) {
+        if (scrollAnimator.inViewport(elem)) {
             //add class
             scrollAnimator.addClass(elem, 'anim-trigger');
+        } else {
+            scrollAnimator.removeClass(elem, 'anim-trigger');
         }
     }
-}
-
-scrollAnimator.addClass = function (elem, classAdd) {
-    if (elem.className.indexOf(classAdd) < 0) {
-        elem.className = elem.className + ' ' + classAdd;
-    }
-}
-
-scrollAnimator.scrollLog = function () {
-    console.log('You made it to the scroller');
-}
-
-//add event listener
-scrollAnimator.addScroll = function (id, searchClass) {
-    var scrollContainer = document.getElementById(id);
-    scrollContainer.addEventListener('scroll', function () {
-        scrollAnimator.animate(searchClass);
-    });
 }
 
 module.exports = scrollAnimator;
