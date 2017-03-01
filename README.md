@@ -9,13 +9,13 @@ Scroll-animator is a simple, lightweight scroller control that enables developer
 Using scroll-animator is simple! There are two easy steps:
 
 1. Initiate the scroll watcher
-'''javascript
-    scrollAnimator.addScroll('scroll-container', 'anim-elem');
-'''
+    ```js
+        scrollAnimator.addScroll('scroll-container', 'anim-elem');
+    ```
     Here, 'scroll-container' is the id of the scrolling element and 'anim-elem' is the class on the elements you want to animate. 
 
 2. Set up the animation in your css stylesheet
-'''css
+```css
     @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
     @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
     @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
@@ -34,7 +34,7 @@ Using scroll-animator is simple! There are two easy steps:
         -moz-animation-duration:1s;
         animation-duration:1s;
     }
-'''
+```
 
 ## Motivation
 
@@ -43,15 +43,15 @@ There are certainly other packages that exist for this type of function, like Wo
 ## Installation
 
 To install, first install the package using:
-'''bash
+```bash
     npm install @syvzies/scroll-animator
-'''
+```
 
 Then, include the module using your favorite framework. In webpack, I have
 
-'''javascript
+```js
     var scrollAnimator = require('@syvzies/scroll-animator');
-'''
+```
 
 The API is know available through the scrollAnimator object.
 
