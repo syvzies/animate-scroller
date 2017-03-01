@@ -1,0 +1,19 @@
+{
+  "name": "@syvzies/scroll-animator",
+  "version": "0.0.1",
+  "description": "A lightweight package that makes it easier to use css animations based on scrolling",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syvzies/scroll-animator.git"
+  },
+  "author": "Alex Syverson <alex.syverson@gmail.com> (http://alexsyverson.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/syvzies/scroll-animator/issues"
+  },
+  "homepage": "https://github.com/syvzies/scroll-animator#readme"
+}
