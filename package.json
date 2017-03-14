@@ -1,6 +1,6 @@
 {
   "name": "@syvzies/scroll-animator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A lightweight package that makes it easier to use css animations based on scrolling",
   "main": "index.js",
   "scripts": {
