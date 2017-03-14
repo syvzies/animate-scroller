@@ -10,9 +10,9 @@ Using scroll-animator is simple! There are two easy steps:
 
 1. Initiate the scroll watcher
     ```js
-        scrollAnimator.addScroll('scroll-container', 'anim-elem');
+        scrollAnimator.init(elem, 'anim-elem');
     ```
-    Here, 'scroll-container' is the id of the scrolling element and 'anim-elem' is the class on the elements you want to animate. 
+    Here, elem is the element you want to add the scroll on and 'anim-elem' is the class on the elements you want to animate. 
 
 2. Set up the animation in your css stylesheet
 ```css
@@ -57,10 +57,10 @@ The API is know available through the scrollAnimator object.
 
 ## API Reference
 
-### addScroll(id, className)
-Will add an event listener on the scroll on the id of the specified element. When the user scrolls, scroll-animator will check to see if any elements with the provided class names are in the viewport. If they are, it will add the class 'anim-trigger' to the element. The class should be specified in your css stylesheet along with another class to control the animation. If the element is not in the viewport, scroll-animator will remove the 'trigger-anim' class.
+### init(elem, className)
+Will add an event listener on the scroll of the elem element. When the user scrolls, scroll-animator will check to see if any elements with the provided class names are in the viewport. If they are, it will add the class 'anim-trigger' to the element. The class should be specified in your css stylesheet along with another class to control the animation. If the element is not in the viewport, scroll-animator will remove the 'trigger-anim' class.
 
-If no className is provided, 'anim-elem' is used as a default.
+If no element is provided, window.document will be used. If no className is provided, 'anim-elem' is used as a default.
 
 ### inViewport(elem)
 Will return true if the element is visible in the viewport.

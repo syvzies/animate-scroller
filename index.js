@@ -34,12 +34,9 @@ scrollAnimator.removeClass = function (elem, classRemove) {
 }
 
 //add event listener
-scrollAnimator.addScroll = function (id, searchClass) {
-    var scrollContainer = document.getElementById(id);
-    if (!scrollContainer) {
-        console.log('Scroll-animator error: element with id ' + id + ' could not be found.');
-        return false;
-    }
+scrollAnimator.init = function (elem, searchClass) {
+    var scrollContainer = elem || window.document;
+
     scrollContainer.addEventListener('scroll', function () {
         animate(searchClass);
     });
