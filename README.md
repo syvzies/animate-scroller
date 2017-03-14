@@ -1,4 +1,5 @@
-#scroll-animator
+
+# @Syvzies/Scroll-Animator
 
 ## Description
 
